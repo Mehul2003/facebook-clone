@@ -1,13 +1,17 @@
 import Image from 'next/image'
-import Header from './components/header'
-import Login from './components/login'
-import Sidebar from './components/sidebar'
-import Feed from './components/feed'
-import Widgets from './components/widgets'
+
+import Login from './components/Landing/login'
+import SignUp from './components/Landing/sign-up'
+
+import Header from './components/Home/header'
+import Sidebar from './components/Home/sidebar'
+import Feed from './components/Home/feed'
+import Widgets from './components/Home/widgets'
 
 export default function Home() {
   if (!false) {
     // return(<Login/>)
+    return(<SignUp/>)
   }
 
   return (
