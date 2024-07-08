@@ -1,4 +1,16 @@
+import { useState } from "react";
+
 function SignUp() {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const days = Array.from({ length: 31 }, (_, index) => index + 1);
+    const years = Array.from({ length: 125 }, (_, index) => 2024 - index);
+
+    const [age, setAge] = useState(0);
+
+    const signUp = () => {
+
+    };
+
     return(
         <div className="flex flex-col justify-center items-center bg-gray-100 h-screen">
             <h1 className="text-[50px] font-bold text-blue-600">facebook</h1>
@@ -22,48 +34,22 @@ function SignUp() {
 
                     <div className="flex flex-row gap-2 w-full">
                         <select className="p-2 w-1/3 outline outline-1 outline-gray-400 rounded-md" name="months" id="">
-                            <option value="jan">Jan</option>
-                            <option value="feb">Feb</option>
-                            <option value="mar">Mar</option>
-                            <option value="apr">Apr</option>
-                            <option value="may">May</option>
-                            <option value="jun">Jun</option>
-                            <option value="jul">Jul</option>
-                            <option value="aug">Aug</option>
-                            <option value="sep">Sep</option>
-                            <option value="oct">Oct</option>
-                            <option value="nov">Nov</option>
-                            <option value="dec">Dec</option>
+                            {months.map( (month) => (
+                                <option value={month}>{month}</option>
+                            ))}
                         </select>
 
                         <select className="p-2 w-1/3 outline outline-1 outline-gray-400 rounded-md" name="days" id="">
-                            <option value="jan">Jan</option>
-                            <option value="feb">Feb</option>
-                            <option value="mar">Mar</option>
-                            <option value="apr">Apr</option>
-                            <option value="may">May</option>
-                            <option value="jun">Jun</option>
-                            <option value="jul">Jul</option>
-                            <option value="aug">Aug</option>
-                            <option value="sep">Sep</option>
-                            <option value="oct">Oct</option>
-                            <option value="nov">Nov</option>
-                            <option value="dec">Dec</option>
+                            {days.map( (day) => (
+                                <option value={day}>{day}</option>
+                            ))}
+
                         </select>
 
                         <select className="p-2 w-1/3 outline outline-1 outline-gray-400 rounded-md" name="years" id="">
-                            <option value="jan">Jan</option>
-                            <option value="feb">Feb</option>
-                            <option value="mar">Mar</option>
-                            <option value="apr">Apr</option>
-                            <option value="may">May</option>
-                            <option value="jun">Jun</option>
-                            <option value="jul">Jul</option>
-                            <option value="aug">Aug</option>
-                            <option value="sep">Sep</option>
-                            <option value="oct">Oct</option>
-                            <option value="nov">Nov</option>
-                            <option value="dec">Dec</option>
+                            {years.map( (year) => (
+                                <option value={year}>{year}</option>
+                            ))}
                         </select>
                     </div>
                 </div>
@@ -94,7 +80,7 @@ function SignUp() {
                                         You may receive SMS Notifications from us and can opt out any time.</p>
                 </div>
 
-                <button className="w-1/2 p-2 bg-lime-600 rounded-md text-white font-bold">Sign Up</button>
+                <button className="w-1/2 p-2 bg-lime-600 rounded-md text-white font-bold" onClick={signUp}>Sign Up</button>
                 <a className="text-blue-500 text-md" href="">Already have an account?</a>
             </div>
         </div>

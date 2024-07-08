@@ -10,7 +10,7 @@ import HeaderIcon from "./header-icon";
 
 function Header() {
     return (
-        <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
+        <div className="sticky top-0 z-50 w-full bg-white flex justify-between items-center p-2 lg:px-5 shadow-md">
 
             {/* left */}
             <div className="flex items-center">
@@ -43,13 +43,12 @@ function Header() {
             </div>
 
             {/* right */}
-            <div className="flex items-center sm:spacing-x-2 justify-end">
+            <div className="flex items-center gap-2 sm:space-x-2">
                 <Image/>
                 <ViewGridIcon className="icon"/>
                 <ChatIcon className="icon"/>
                 <BellIcon className="icon"/>
                 <ChevronDownIcon className="icon"/>
-                
             </div>
 
         </div>

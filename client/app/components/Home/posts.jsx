@@ -1,53 +1,32 @@
 import Post from "./post";
+import { useEffect, useState } from "react";
 
 function Posts() {
+    const [posts, setPosts] = useState([])
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const res = await fetch('http://localhost:8080/getAllPosts')
+            const json = await res.json()
+
+            if (res.ok) {
+                setPosts(json)
+            }
+        }
+        fetchPosts()
+    }, [])
+
     return(
         <div>
-            <Post
-                key={1}
-                name={"Mehul Tailang"}
-                message={"Hello World"}
-                email={"123@gmail.com"}
-                timestamp={"1/2/2021"}
-                image={"https://links.papareact.com/kxk"}
-                postImage={"https://links.papareact.com/kxk"}
-            />
-            <Post
-                key={1}
-                name={"Mehul Tailang"}
-                message={"Hello World"}
-                email={"123@gmail.com"}
-                timestamp={"1/2/2021"}
-                image={"https://links.papareact.com/kxk"}
-                postImage={"https://links.papareact.com/kxk"}
-            />
-            <Post
-                key={1}
-                name={"Mehul Tailang"}
-                message={"Hello World"}
-                email={"123@gmail.com"}
-                timestamp={"1/2/2021"}
-                image={"https://links.papareact.com/kxk"}
-                postImage={"https://links.papareact.com/kxk"}
-            />
-            <Post
-                key={1}
-                name={"Mehul Tailang"}
-                message={"Hello World"}
-                email={"123@gmail.com"}
-                timestamp={"1/2/2021"}
-                image={"https://links.papareact.com/kxk"}
-                postImage={"https://links.papareact.com/kxk"}
-            />
-            <Post
-                key={1}
-                name={"Mehul Tailang"}
-                message={"Hello World"}
-                email={"123@gmail.com"}
-                timestamp={"1/2/2021"}
-                image={"https://links.papareact.com/kxk"}
-                postImage={"https://links.papareact.com/kxk"}
-            />
+            {posts.map( (post) => (
+                <Post 
+                    name={post.user}
+                    message={post.body}
+                    timestamp={post.timestamp}
+                    image={post.userImage}
+                    postImage={post.image_id}
+                />
+            ))}
         </div>
     );
 }
